@@ -29,6 +29,7 @@ guardarBtn.addEventListener('click', (event) => {
 
 // Funcion para cargar tareas
 const cargarTareas = () => {
+	// Mostrar toastify "TAREAS CARGADAS"
 	listaTareas.innerHTML = '';
 	let tareas = JSON.parse(localStorage.getItem('tareas')) || [];
 	tareas.forEach((tarea) => {
@@ -44,7 +45,6 @@ borrarBtn.addEventListener('click', () => {
 });
 
 // detectar cuando la pestaña recargue y volver a cargar las tareas
-
 window.addEventListener('', () => {
 	cargarTareas();
 });
