@@ -1,3 +1,6 @@
+import Toastify from 'toastify-js';
+import 'toastify-js/src/toastify.css';
+
 const formulario = document.querySelector('form');
 const tareaInput = document.querySelector('#tarea');
 const guardarBtn = document.querySelector('#guardar');
@@ -18,7 +21,10 @@ guardarBtn.addEventListener('click', (event) => {
 	localStorage.setItem('tareas', JSON.stringify(tareas));
 	cargarTareas();
 	formulario.reset();
-	console.log('Se agrego correctamente la tarea ingresada');
+	Toastify({
+		text: `La tarea con nombre ${tarea} se cargo correctamente.`,
+		className: 'info',
+	}).showToast();
 });
 
 // Funcion para cargar tareas
