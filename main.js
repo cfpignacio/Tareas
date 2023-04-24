@@ -4,6 +4,7 @@ const guardarBtn = document.querySelector('#guardar');
 const borrarBtn = document.querySelector('#borrar');
 const listaTareas = document.querySelector('#listaTareas');
 
+// Guardar Tarea
 guardarBtn.addEventListener('click', (event) => {
 	event.preventDefault();
 	const tarea = tareaInput.value;
@@ -20,15 +21,7 @@ guardarBtn.addEventListener('click', (event) => {
 	console.log('Se agrego correctamente la tarea ingresada');
 });
 
-window.addEventListener('load', () => {
-	let tareas = JSON.parse(localStorage.getItem('tareas')) || [];
-	tareas.forEach((tarea) => {
-		const li = document.createElement('li');
-		li.textContent = tarea;
-		listaTareas.appendChild(li);
-	});
-});
-
+// Funcion para cargar tareas
 const cargarTareas = () => {
 	listaTareas.innerHTML = '';
 	let tareas = JSON.parse(localStorage.getItem('tareas')) || [];
@@ -39,10 +32,7 @@ const cargarTareas = () => {
 	});
 };
 
-// capturar el evento click del boton guardar
-// borrar todas las tareas que se encuentran el localstorage
-// con la key tareas
-
+// borrar tareas
 borrarBtn.addEventListener('click', () => {
 	localStorage.removeItem('tareas');
 });
