@@ -42,3 +42,9 @@ const cargarTareas = () => {
 borrarBtn.addEventListener('click', () => {
 	localStorage.removeItem('tareas');
 });
+
+// detectar cuando la pestaña recargue y volver a cargar las tareas
+
+window.addEventListener('', () => {
+	cargarTareas();
+});
